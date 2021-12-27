@@ -1,6 +1,9 @@
 import React from "react";
+import "./CartItem.css";
 
 function CartItem({ id, name, price, qty, updateQty }) {
+  let total = qty * price;
+
   return (
     <div className="CartItem">
       <div>{name}</div>
@@ -10,6 +13,7 @@ function CartItem({ id, name, price, qty, updateQty }) {
           onClick={() => {
             updateQty(id, qty - 1);
           }}
+          disabled={qty < 1}
         >
           -
         </button>
@@ -22,6 +26,7 @@ function CartItem({ id, name, price, qty, updateQty }) {
           +
         </button>
       </div>
+      <div>Total: ${total.toFixed(2)}</div>
     </div>
   );
 }

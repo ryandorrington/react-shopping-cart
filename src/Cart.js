@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CartItem from "./CartItem";
+import "./Cart.css";
+
 function Cart({ initialItems }) {
   const [items, setItems] = useState(initialItems);
 
@@ -18,13 +20,13 @@ function Cart({ initialItems }) {
     .toFixed(2);
   return (
     <div className="Cart">
-      <h1>cart</h1>
+      <h1 className="Cart-title">Shopping Cart</h1>
       <div className="Cart-items">
         {items.map((item) => (
           <CartItem key={item.id} updateQty={updateQty} {...item} />
         ))}
       </div>
-      <h2>Total: ${grandTotal}</h2>
+      <h2 className="Cart-total">Cart Total: ${grandTotal}</h2>
     </div>
   );
 }
